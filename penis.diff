@@ -1,0 +1,27 @@
+diff -Nur wget-1.18/src/progress.c wget-1.18.orig/src/progress.c
+--- wget-1.18.orig/src/progress.c	2016-09-08 11:08:54.901860715 +0200
++++ wget-1.18/src/progress.c	2016-09-08 11:06:07.198007894 +0200
+@@ -1028,7 +1028,7 @@
+       assert (dlsz <= progress_size);
+       assert (insz <= dlsz);
+ 
+-      *p++ = '[';
++      *p++ = '8';
+       begin = p;
+ 
+       /* Print the initial portion of the download with '+' chars, the
+@@ -1041,12 +1041,12 @@
+         {
+           memset (p, '=', dlsz-1);
+           p += dlsz - 1;
+-          *p++ = '>';
++          *p++ = 'D';
+         }
+ 
+       memset (p, ' ', (progress_size - (p - begin)));
+       p += (progress_size - (p - begin));
+-      *p++ = ']';
++      *p++ = ':';
+     }
+   else if (progress_size)
+     {
